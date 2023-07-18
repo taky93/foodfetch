@@ -75,15 +75,3 @@ class Nosalty:
     def randomizeFood(self):
         food_list = ['paprikás' , 'csirke' , 'kacsa', 'sertés','palacsinta']
         return random.choice(food_list)
-
-    def save_recepies(self,recepies,args):
-        try:
-            if args[2] == 'save':
-                file_name = str(date.today()) + str(self.search).capitalize().strip() + '.csv'
-                full_path = os.path.join("Receptek" , file_name)
-
-                with open(full_path,"w") as file:
-                    file.write(recepies)
-                print(f'Saved as {file_name}')
-        except IndexError:
-            return 'Fetch without save'
