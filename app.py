@@ -1,9 +1,7 @@
 from Api.food import Nosalty
-import os
-import sys
-import time
+
 import logging
-import datetime
+import argparse
 
 #Object instatiate
 app = Nosalty()
@@ -11,14 +9,11 @@ logging.basicConfig(format='%(levelname)s:%(message)s',level=logging.DEBUG)
 keywords = ['save','single']
 #App logic
 
-def main_menu():
-    
-    print('Food API by Taky \n')
-    #Bullshit
-    print(app.listOfFoods())
-    input() #hahahah :D
-    
+parser = argparse.ArgumentParser()
 
+parser.add_argument('-s','--single',metavar="",help="Fetch single food")
 
-    
-main_menu()
+args = parser.parse_args()
+
+if args.single:
+    print(app.listOfFoods(args=args.single))
