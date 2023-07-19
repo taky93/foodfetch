@@ -56,13 +56,15 @@ class Nosalty:
             i = i + 1
         try:
             selection = int(input(">>>")) - 1
+            portions = int(input("Portions:"))
+            
         except ValueError:
             return 'Only numbers allowed!!!'
         raw_res = requests.get(url[selection])
         raw_soup = BeautifulSoup(raw_res.content,"html.parser")
         food_url = raw_soup.find('a', class_='position-relative d-block')['href']
 
-        res = requests.get(raw_url+food_url)
+        res = requests.get(raw_url+food_url + f"?adag={portions}#ingredients")
         soup = BeautifulSoup(res.content,'html.parser')
         #Working on this#
         single_title = soup.find('h1' , class_='p-article__title -recipe pt-8 mb-5 d-block').get_text(separator=" ")
