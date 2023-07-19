@@ -11,9 +11,13 @@ keywords = ['save','single']
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-s','--single',metavar="",help="Fetch single food")
+parser.add_argument('-f','--fetch',metavar="",help="Fetch list food")
+parser.add_argument('-s','--single',help="Pick single food",action='store_true')
+
 
 args = parser.parse_args()
 
+if args.fetch:
+    print(app.fetchFood(args=args.fetch))
 if args.single:
-    print(app.listOfFoods(args=args.single))
+    print(app.singleFood(args=args.fetch))

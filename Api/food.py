@@ -26,7 +26,7 @@ class Nosalty:
         return titles , urls
 
 
-    def listOfFoods(self,args):
+    def fetchFood(self,args):
         title = []
         url = []
         
@@ -37,10 +37,8 @@ class Nosalty:
             url.append(str(self.url + u['href'][8:]))
 
         df = pd.DataFrame({'Title': title, 'Url': url})
-
-
-
         return df
+    
     #In progress
     def singleFood(self,args):
         raw_url = 'https://www.nosalty.hu'
