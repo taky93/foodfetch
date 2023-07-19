@@ -45,7 +45,7 @@ class Nosalty:
         i = 1
         title = []
         url = []
-        ingredient = []
+        ingredientz = []
         titles , urls = self.fetch_data(args)
         for t in titles:
             title.append(t.text)
@@ -65,10 +65,12 @@ class Nosalty:
         res = requests.get(raw_url+food_url)
         soup = BeautifulSoup(res.content,'html.parser')
         #Working on this#
-        single_title = soup.find('h1' , class_='p-article__title -recipe pt-8 mb-5 d-block').text
+        single_title = soup.find('h1' , class_='p-article__title -recipe pt-8 mb-5 d-block').get_text(separator=" ")
         ingredients = soup.find_all('li',class_='m-list__item p-2 -dotted -fontSize-16 d-flex justify-content-between pl-5')
-        print("anyád")
-        return single_title , ingredients
+        
+        for i in ingredients:
+            ingredientz.append(i.get_text(strip=True))
+        return single_title , ingredientz
         #---------------#
     def randomizeFood(self):
         food_list = ['paprikás' , 'csirke' , 'kacsa', 'sertés','palacsinta']

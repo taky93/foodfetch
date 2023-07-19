@@ -20,4 +20,10 @@ args = parser.parse_args()
 if args.fetch:
     print(app.fetchFood(args=args.fetch))
 if args.single:
-    print(app.singleFood(args=args.fetch))
+    title, ingredients =app.singleFood(args=args.fetch)
+    print(title)
+    for i in ingredients:
+        print(i)
+    
+    
+    
