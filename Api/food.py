@@ -1,14 +1,8 @@
-import math
-import sys
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-from datetime import date
 import random
-import os
-import time
 import numpy as np
-
 
 
 class Nosalty:
@@ -65,16 +59,15 @@ class Nosalty:
         raw_soup = BeautifulSoup(raw_res.content,"html.parser")
         food_url = raw_soup.find('a', class_='position-relative d-block')['href']
 
-        res = requests.get(raw_url+food_url + f"?adag={portions}#ingredients")
+        res = requests.get(raw_url+food_url + f"?adag={portions}")
         soup = BeautifulSoup(res.content,'html.parser')
         #Working on this#
         single_title = soup.find('h1' , class_='p-article__title -recipe pt-8 mb-5 d-block').get_text(separator=" ")
         ingredients = soup.find_all('li',class_='m-list__item p-2 -dotted -fontSize-16 d-flex justify-content-between pl-5')
         
         for i in ingredients:
-           if i not in ingredients:
-                 ingredientz.append(i.get_text(separator=" ",strip=True))
-        return single_title , np.unique(ingredientz) 
+            ingredientz.append(i.get_text(separator=" ",strip=True))
+        return single_title , np.unique(ingredientz)
         #---------------#
     def randomizeFood(self):
         food_list = ['paprikás' , 'csirke' , 'kacsa', 'sertés','palacsinta']
