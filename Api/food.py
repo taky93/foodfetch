@@ -71,7 +71,8 @@ class Nosalty:
         ingredients = soup.find_all('li',class_='m-list__item p-2 -dotted -fontSize-16 d-flex justify-content-between pl-5')
         
         for i in ingredients:
-            ingredientz.append(i.get_text(separator=" ",strip=True))
+           if i not in ingredients:
+                 ingredientz.append(i.get_text(separator=" ",strip=True))
         return single_title , ingredientz
         #---------------#
     def randomizeFood(self):
