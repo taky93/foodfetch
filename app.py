@@ -1,5 +1,4 @@
-from Api.food import Nosalty
-
+from api.food import Nosalty
 import logging
 import argparse
 
@@ -13,8 +12,6 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('-f','--fetch',metavar="",help="Fetch list food")
 parser.add_argument('-s','--single',help="Pick single food",action='store_true')
-
-
 args = parser.parse_args()
 
 if args.fetch:
