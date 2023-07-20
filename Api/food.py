@@ -7,6 +7,7 @@ from datetime import date
 import random
 import os
 import time
+import numpy as np
 
 
 
@@ -73,7 +74,7 @@ class Nosalty:
         for i in ingredients:
            if i not in ingredients:
                  ingredientz.append(i.get_text(separator=" ",strip=True))
-        return single_title , ingredientz
+        return single_title , np.unique(ingredientz) 
         #---------------#
     def randomizeFood(self):
         food_list = ['paprikás' , 'csirke' , 'kacsa', 'sertés','palacsinta']
