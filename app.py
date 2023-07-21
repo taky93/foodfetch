@@ -14,13 +14,13 @@ parser.add_argument('-f','--fetch',metavar="",help="Fetch list food")
 parser.add_argument('-s','--single',help="Pick single food",action='store_true')
 args = parser.parse_args()
 
-if args.fetch:
-    print(app.fetchFood(args=args.fetch))
-if args.single:
+if args.fetch and args.single:
     title, ingredients =app.singleFood(args=args.fetch)
     print(title)
     for i in ingredients:
         print(i)
-    
+
+else:
+    print(app.fetchFood(args=args.fetch))
     
     

@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import random
 import numpy as np
-
+from yaspin import yaspin
 
 class Nosalty:
 
@@ -15,9 +15,12 @@ class Nosalty:
             response = requests.get(self.url+self.randomizeFood())
         else:
             response = requests.get(self.url+args)
-        soup = BeautifulSoup(response.content,'html.parser')
-        titles = soup.find_all('a', class_='m-articleCard__headline -smallArticle a-link mb-6')
-        urls = soup.find_all('a', class_='m-articleCard__headline -smallArticle a-link mb-6')
+        with yaspin(text='Fetching...') as spinner:
+            soup = BeautifulSoup(response.content,'html.parser')
+            titles = soup.find_all('a', class_='m-articleCard__headline -smallArticle a-link mb-6')
+            urls = soup.find_all('a', class_='m-articleCard__headline -smallArticle a-link mb-6')
+
+                
         return titles , urls
 
 
