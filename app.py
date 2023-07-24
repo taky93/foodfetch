@@ -22,10 +22,7 @@ def main():
         title, ingredients = app.singleFood(args=args.fetch)
         print(title)
         for i in ingredients:
-            print(i)
-    if args.save:
-        app.save_food(app.singleFood(args=args.fetch))
-        print("Saved")
+            print(i)
     else:
         print(app.fetchFood(args=args.fetch))
 
