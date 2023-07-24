@@ -14,8 +14,6 @@ parser.add_argument('-f', '--fetch', metavar="", help="Fetch list food")
 parser.add_argument(
     '-s', '--single', help="Pick single food", action='store_true')
 
-parser.add_argument('-sv', '--save', help="Save food", action='store_true')
-
 args = parser.parse_args()
 
 
