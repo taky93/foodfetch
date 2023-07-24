@@ -19,10 +19,8 @@ class Nosalty:
             soup = BeautifulSoup(response.content,'html.parser')
             titles = soup.find_all('a', class_='m-articleCard__headline -smallArticle a-link mb-6')
             urls = soup.find_all('a', class_='m-articleCard__headline -smallArticle a-link mb-6')
-
-                
+  
         return titles , urls
-
 
     def fetchFood(self,args):
         title = []
@@ -36,8 +34,7 @@ class Nosalty:
 
         df = pd.DataFrame({'Title': title, 'Url': url})
         return df
-    
-    #In progress
+
     def singleFood(self,args):
         raw_url = 'https://www.nosalty.hu'
         i = 1
@@ -64,7 +61,7 @@ class Nosalty:
 
         res = requests.get(raw_url+food_url + f"?adag={portions}")
         soup = BeautifulSoup(res.content,'html.parser')
-        #Working on this#
+ 
         single_title = soup.find('h1' , class_='p-article__title -recipe pt-8 mb-5 d-block').get_text(separator=" ")
         ingredients = soup.find_all('li',class_='m-list__item p-2 -dotted -fontSize-16 d-flex justify-content-between pl-5')
         
