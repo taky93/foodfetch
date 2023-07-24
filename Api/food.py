@@ -75,3 +75,4 @@ class Nosalty:
     def randomizeFood(self):
         food_list = ['paprikás' , 'csirke' , 'kacsa', 'sertés','palacsinta']
         return random.choice(food_list)
+    
