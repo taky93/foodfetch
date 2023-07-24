@@ -22,7 +22,8 @@ def main():
         title, ingredients = app.singleFood(args=args.fetch)
         print(title)
         for i in ingredients:
-            print(i)
+            print(i)
+
     else:
         print(app.fetchFood(args=args.fetch))
 
