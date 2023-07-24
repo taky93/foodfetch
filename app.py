@@ -1,4 +1,4 @@
-from Api.food import Nosalty
+from api.food import Nosalty
 import logging
 import argparse
 
