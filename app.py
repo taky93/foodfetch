@@ -10,7 +10,7 @@ keywords = ['save', 'single']
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-f', '--fetch', metavar="", help="Fetch list food")
+parser.add_argument('-f', '--fetch', metavar="", help="Fetch list of food")
 parser.add_argument(
     '-s', '--single', help="Pick single food", action='store_true')
 
