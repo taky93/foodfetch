@@ -41,11 +41,13 @@ class Nosalty:
         title = []
         url = []
         ingredientz = []
+        recepiez = []
         titles , urls = self.fetch_data(args)
         for t in titles:
             title.append(t.text)
         for u in urls:
             url.append(self.url + u['href'][8:])
+            print(u['href'][8:])
         for pick in title:
             print(f"{str(i)}.{pick}")
             i = i + 1
@@ -56,18 +58,22 @@ class Nosalty:
         except ValueError:
             return 'Only numbers allowed!!!'
         raw_res = requests.get(url[selection])
+        
         raw_soup = BeautifulSoup(raw_res.content,"html.parser")
         food_url = raw_soup.find('a', class_='position-relative d-block')['href']
 
         res = requests.get(raw_url+food_url + f"?adag={portions}")
         soup = BeautifulSoup(res.content,'html.parser')
- 
+
         single_title = soup.find('h1' , class_='p-article__title -recipe pt-8 mb-5 d-block').get_text(separator=" ")
         ingredients = soup.find_all('li',class_='m-list__item p-2 -dotted -fontSize-16 d-flex justify-content-between pl-5')
-        
+        little_title = soup.find('h3',class_='a-title -fontFamilySecondary -fontSize-28 -fontWeightStandard -fontColorPrimary mb-6')
+        recepie = soup.find('ol',class_='m-list__list -nutrition').get_text(separator=" ",strip=True)
         for i in ingredients:
             ingredientz.append(i.get_text(separator=" ",strip=True))
-        return single_title , np.unique(ingredientz)
+
+
+        return single_title , np.unique(ingredientz) , little_title.text , recepie
         #---------------#
     def randomizeFood(self):
         food_list = ['paprikás' , 'csirke' , 'kacsa', 'sertés','palacsinta']
