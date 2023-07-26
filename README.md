@@ -24,8 +24,8 @@ Install dependencies
 Start script
 
 ```bash
-  python app.py -h
-  usage: app.py [-h] [-f] [-s]
+  python cli.py -h
+  usage: cli.py [-h] [-f] [-s]
 
     options:
         -h, --help     show this help message and exit
