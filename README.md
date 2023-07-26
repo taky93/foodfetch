@@ -33,8 +33,12 @@ Start script
         -s, --single   Pick single food
 ```
 
+## Comming soon 😁
+
+-Graphical user interface
 
 ## Contributing
 
 Contributions are always welcome!
+
 
