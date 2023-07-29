@@ -36,7 +36,7 @@ Start script
 ## Coming soon 😁
 
 - Graphical user interface
--CLI tweaks ,fixes
+- CLI tweaks ,fixes
 
 ## Contributing
 
