@@ -18,7 +18,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  pip install -r requirements.txt
+  pip install -r requirements.txt 
 ```
 
 Start script
@@ -35,7 +35,8 @@ Start script
 
 ## Coming soon 😁
 
--Graphical user interface
+- Graphical user interface
+-CLI tweaks ,fixes
 
 ## Contributing
 
