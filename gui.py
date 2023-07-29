@@ -21,15 +21,15 @@ class App:
         self.fetch.pack()
         
     def fetchData(self):
-        titles ,url = api.fetch_data(self.food.get())
+        
         table_window = tk.Tk()
         self.fetch = ttk.Treeview(table_window)
         self.fetch["columns"] = ("Title", "Url")
         self.fetch.heading("Title", text="Title")
         self.fetch.heading("Url", text="Url")
         
-        self.fetch.column("Title", width=400, minwidth=200, stretch=tk.NO)
-        self.fetch.column("Url", width=400, minwidth=200, stretch=tk.NO)
+        self.fetch.column("Title", width=500, minwidth=200, stretch=tk.NO)
+        self.fetch.column("Url", width=500, minwidth=200, stretch=tk.NO)
         
 
  
@@ -39,5 +39,5 @@ class App:
     def run(self):
         self.master.mainloop()
         
-app = App(window,)
+app = App(window)
 app.run()
