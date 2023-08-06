@@ -70,6 +70,6 @@ class Nosalty:
         return single_title , np.unique(ingredientz)
         #---------------#
     def randomizeFood(self):
-        food_list = ['paprikás' , 'csirke' , 'kacsa', 'sertés','palacsinta']
+        food_list = ['paprikás' , 'csirke' , 'kacsa', 'sertés', 'palacsinta','torta','gulyás','pörkölt','leves','hal','tészta','pizza','hús','ramen','burger','rántott']
         return random.choice(food_list)
     
