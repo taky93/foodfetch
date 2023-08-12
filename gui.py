@@ -30,7 +30,7 @@ class App:
         
         self.fetch.column("Title", width=500, minwidth=200, stretch=tk.NO)
         self.fetch.column("Url", width=500, minwidth=200, stretch=tk.NO)
-        
+
 
  
             
@@ -38,6 +38,6 @@ class App:
         
     def run(self):
         self.master.mainloop()
-        
-app = App(window)
-app.run()
+if __name__ == "__main__":      
+    app = App(window)
+    app.run()
