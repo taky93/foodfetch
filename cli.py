@@ -2,32 +2,33 @@ from Api.food import Nosalty
 import logging
 import argparse
 
-# Object instatiate
-app = Nosalty()
-logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
-keywords = ['save', 'single']
-# App logic
 
-parser = argparse.ArgumentParser()
+class Cli:
+    def __init__(self):
+        self.app = Nosalty()
+        logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
+        self.keywords = ['save', 'single']
+        self.parser = argparse.ArgumentParser()
+        self.parser.add_argument('-f', '--fetch', metavar="", help="Fetch list of food")
+        self.parser.add_argument(
+         '-s', '--single', help="Pick single food", action='store_true')
+        self.args = self.parser.parse_args()
 
-parser.add_argument('-f', '--fetch', metavar="", help="Fetch list of food")
-parser.add_argument(
-    '-s', '--single', help="Pick single food", action='store_true')
+    def run(self):
+
+        if self.args.fetch and self.args.single:
+            title, ingredients = self.app.singleFood(args=self.args.fetch)
+            print(title)
+            for i in ingredients:
+                print(i)
+
+        else:
+            print(self.app.fetchFood(args=self.args.fetch))
 
 
-args = parser.parse_args()
 
-
-def main():
-    if args.fetch and args.single:
-        title, ingredients = app.singleFood(args=args.fetch)
-        print(title)
-        for i in ingredients:
-            print(i)
-
-    else:
-        print(app.fetchFood(args=args.fetch))
 
 
 if __name__ == "__main__":
-    main()
+    app = Cli()
+    app.run()
